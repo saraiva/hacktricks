@@ -27,7 +27,18 @@ Execute _secpol.msc_ -&gt; Local policies -&gt; Security Options -&gt; Network S
 This will set the level 5:
 
 ```text
-reg add HKLM\SYSTEM\CurrentControlSet\Lsa\ /v lmcompatibilitylevel /t REG_DWORD /d 5 /f
+reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\ /v lmcompatibilitylevel /t REG_DWORD /d 5 /f
+```
+
+Possible values:
+
+```text
+0 - Send LM & NTLM responses
+1 - Send LM & NTLM responses, use NTLMv2 session security if negotiated
+2 - Send NTLM response only
+3 - Send NTLMv2 response only
+4 - Send NTLMv2 response only, refuse LM
+5 - Send NTLMv2 response only, refuse LM & NTLM
 ```
 
 ## Basic NTLM Domain authentication Scheme

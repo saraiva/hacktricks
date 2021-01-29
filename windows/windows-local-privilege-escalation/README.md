@@ -213,7 +213,7 @@ If you have a meterpreter session you can automate this technique using the modu
 
 ### PowerUP
 
-Use the `Write-UserAddMSI` command from power-up to create inside the current directory a Windows MSI binary to escalate privileges:
+Use the `Write-UserAddMSI` command from power-up to create inside the current directory a Windows MSI binary to escalate privileges. This script writes out a precompiled MSI installer that prompts for a user/group addition \(so you will need GIU access\):
 
 ```text
 Write-UserAddMSI
@@ -223,9 +223,13 @@ Just execute the created binary to escalate privileges.
 
 ### MSI Wrapper
 
-Read this tutorial to learn how to create a MSI wrapper using this tools:
+Read this tutorial to learn how to create a MSI wrapper using this tools. Note that you can wrap a "**.bat**" file if you **just** want to **execute** **command lines**
 
 {% page-ref page="msi-wrapper.md" %}
+
+### Create MSI with WIX
+
+{% page-ref page="create-msi-with-wix.md" %}
 
 ### MSI Installation
 

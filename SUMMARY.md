@@ -24,6 +24,7 @@
 
 * [Checklist - Linux Privilege Escalation](linux-unix/linux-privilege-escalation-checklist.md)
 * [Linux Privilege Escalation](linux-unix/privilege-escalation/README.md)
+  * [Logstash](linux-unix/privilege-escalation/logstash.md)
   * [AppArmor](linux-unix/privilege-escalation/apparmor.md)
   * [Containerd \(ctr\) Privilege Escalation](linux-unix/privilege-escalation/containerd-ctr-privilege-escalation.md)
   * [Docker Breakout](linux-unix/privilege-escalation/docker-breakout.md)
@@ -52,6 +53,7 @@
 * [Checklist - Local Windows Privilege Escalation](windows/checklist-windows-privilege-escalation.md)
 * [Windows Local Privilege Escalation](windows/windows-local-privilege-escalation/README.md)
   * [AppendData/AddSubdirectory permission over service registry](windows/windows-local-privilege-escalation/appenddata-addsubdirectory-permission-over-service-registry.md)
+  * [Create MSI with WIX](windows/windows-local-privilege-escalation/create-msi-with-wix.md)
   * [DPAPI - Extracting Passwords](windows/windows-local-privilege-escalation/dpapi-extracting-passwords.md)
   * [SeImpersonate from High To System](windows/windows-local-privilege-escalation/seimpersonate-from-high-to-system.md)
   * [Access Tokens](windows/windows-local-privilege-escalation/access-tokens.md)
@@ -276,6 +278,7 @@
 * [5000 - Pentesting Docker Registry](pentesting/5000-pentesting-docker-registry.md)
 * [5353/UDP Multicast DNS \(mDNS\)](pentesting/5353-udp-multicast-dns-mdns.md)
 * [5432,5433 - Pentesting Postgresql](pentesting/pentesting-postgresql.md)
+* [5601 - Pentesting Kibana](pentesting/5601-pentesting-kibana.md)
 * [5671,5672 - Pentesting AMQP](pentesting/5671-5672-pentesting-amqp.md)
 * [5800,5801,5900,5901 - Pentesting VNC](pentesting/pentesting-vnc.md)
 * [5984,6984 - Pentesting CouchDB](pentesting/5984-pentesting-couchdb.md)
@@ -340,6 +343,7 @@
 * [PostMessage Vulnerabilities](pentesting-web/postmessage-vulnerabilities.md)
 * [Race Condition](pentesting-web/race-condition.md)
 * [Rate Limit Bypass](pentesting-web/rate-limit-bypass.md)
+* [Regular expression Denial of Service - ReDoS](pentesting-web/regular-expression-denial-of-service-redos.md)
 * [SQL Injection](pentesting-web/sql-injection/README.md)
   * [MSSQL Injection](pentesting-web/sql-injection/mssql-injection.md)
   * [Oracle injection](pentesting-web/sql-injection/oracle-injection.md)
@@ -477,4 +481,5 @@
 * [Online Platforms with API](online-platforms-with-api.md)
 * [Reset/Forgoten Password Bypass](reset-password.md)
 * [Stealing Sensitive Information Disclosure from a Web](stealing-sensitive-information-disclosure-from-a-web.md)
+* [AWS Security](aws-security.md)
 
