@@ -1,6 +1,7 @@
 # Table of contents
 
 * [HackTricks](README.md)
+* [Getting Started in Hacking](getting-started-in-hacking.md)
 * [Pentesting Methodology](pentesting-methodology.md)
 * [External Recon Methodology](external-recon-methodology.md)
 * [Phishing Methodology](phishing-methodology/README.md)
@@ -29,7 +30,7 @@
   * [Containerd \(ctr\) Privilege Escalation](linux-unix/privilege-escalation/containerd-ctr-privilege-escalation.md)
   * [Docker Breakout](linux-unix/privilege-escalation/docker-breakout.md)
   * [electron/CEF/chromium debugger abuse](linux-unix/privilege-escalation/electron-cef-chromium-debugger-abuse.md)
-  * [Escaping from restricted shells - Jails](linux-unix/privilege-escalation/escaping-from-limited-bash.md)
+  * [Escaping from Jails](linux-unix/privilege-escalation/escaping-from-limited-bash.md)
   * [Cisco - vmanage](linux-unix/privilege-escalation/cisco-vmanage.md)
   * [D-Bus Enumeration & Command Injection Privilege Escalation](linux-unix/privilege-escalation/d-bus-enumeration-and-command-injection-privilege-escalation.md)
   * [Interesting Groups - Linux PE](linux-unix/privilege-escalation/interesting-groups-linux-pe/README.md)
@@ -132,6 +133,7 @@
   * [Google CTF 2018 - Shall We Play a Game?](mobile-apps-pentesting/android-app-pentesting/google-ctf-2018-shall-we-play-a-game.md)
   * [Make APK Accept CA Certificate](mobile-apps-pentesting/android-app-pentesting/make-apk-accept-ca-certificate.md)
   * [Manual DeObfuscation](mobile-apps-pentesting/android-app-pentesting/manual-deobfuscation.md)
+  * [React Native Application](mobile-apps-pentesting/android-app-pentesting/react-native-application.md)
   * [Reversing Native Libraries](mobile-apps-pentesting/android-app-pentesting/reversing-native-libraries.md)
   * [Smali - Decompiling/\[Modifying\]/Compiling](mobile-apps-pentesting/android-app-pentesting/smali-changes.md)
   * [Spoofing your location in Play Store](mobile-apps-pentesting/android-app-pentesting/spoofing-your-location-in-play-store.md)
@@ -168,6 +170,7 @@
   * [Print Job Retention](pentesting/pentesting-printers/print-job-retention.md)
   * [Scanner and Fax](pentesting/pentesting-printers/scanner-and-fax.md)
 * [Pentesting SAP](pentesting/pentesting-sap.md)
+* [Pentesting Kubernetes](pentesting/pentesting-kubernetes.md)
 * [7/tcp/udp - Pentesting Echo](pentesting/7-tcp-udp-pentesting-echo.md)
 * [21 - Pentesting FTP](pentesting/pentesting-ftp/README.md)
   * [FTP Bounce attack - Scan](pentesting/pentesting-ftp/ftp-bounce-attack.md)
@@ -181,6 +184,8 @@
 * [69/UDP TFTP/Bittorrent-tracker](pentesting/69-udp-tftp.md)
 * [79 - Pentesting Finger](pentesting/pentesting-finger.md)
 * [80,443 - Pentesting Web Methodology](pentesting/pentesting-web/README.md)
+  * [Moodle](pentesting/pentesting-web/moodle.md)
+  * [Golang](pentesting/pentesting-web/golang.md)
   * [Uncovering CloudFlare](pentesting/pentesting-web/uncovering-cloudflare.md)
   * [Laravel](pentesting/pentesting-web/laravel.md)
   * [Code Review Tools](pentesting/pentesting-web/code-review-tools.md)
@@ -269,11 +274,13 @@
 * [2049 - Pentesting NFS Service](pentesting/nfs-service-pentesting.md)
 * [2301,2381 - Pentesting Compaq/HP Insight Manager](pentesting/pentesting-compaq-hp-insight-manager.md)
 * [2375, 2376 Pentesting Docker](pentesting/2375-pentesting-docker.md)
+* [3128 - Pentesting Squid](pentesting/3128-pentesting-squid.md)
 * [3260 - Pentesting ISCSI](pentesting/3260-pentesting-iscsi.md)
 * [3299 - Pentesting SAPRouter](pentesting/3299-pentesting-saprouter.md)
 * [3306 - Pentesting Mysql](pentesting/pentesting-mysql.md)
 * [3389 - Pentesting RDP](pentesting/pentesting-rdp.md)
 * [3632 - Pentesting distcc](pentesting/3632-pentesting-distcc.md)
+* [3690 - Pentesting Subversion \(svn server\)](pentesting/3690-pentesting-subversion-svn-server.md)
 * [4369 - Pentesting Erlang Port Mapper Daemon \(epmd\)](pentesting/4369-pentesting-erlang-port-mapper-daemon-epmd.md)
 * [5000 - Pentesting Docker Registry](pentesting/5000-pentesting-docker-registry.md)
 * [5353/UDP Multicast DNS \(mDNS\)](pentesting/5353-udp-multicast-dns-mdns.md)
@@ -324,10 +331,12 @@
   * [Basic Java Deserialization \(ObjectInputStream, readObject\)](pentesting-web/deserialization/basic-java-deserialization-objectinputstream-readobject.md)
   * [CommonsCollection1 Payload - Java Transformers to Rutime exec\(\) and Thread Sleep](pentesting-web/deserialization/java-transformers-to-rutime-exec-payload.md)
   * [Basic .Net deserialization \(ObjectDataProvider gadget, ExpandedWrapper, and Json.Net\)](pentesting-web/deserialization/basic-.net-deserialization-objectdataprovider-gadgets-expandedwrapper-and-json.net.md)
-  * [Exploiting \_\_VIEWSTATE parameter](pentesting-web/deserialization/exploiting-__viewstate-parameter.md)
+  * [Exploiting \_\_VIEWSTATE knowing the secrets](pentesting-web/deserialization/exploiting-__viewstate-knowing-the-secret.md)
+  * [Exploiting \_\_VIEWSTATE without knowing the secrets](pentesting-web/deserialization/exploiting-__viewstate-parameter.md)
 * [Domain/Subdomain takeover](pentesting-web/domain-subdomain-takeover.md)
 * [Email Header Injection](pentesting-web/email-header-injection.md)
 * [File Inclusion/Path traversal](pentesting-web/file-inclusion/README.md)
+  * [phar:// deserialization](pentesting-web/file-inclusion/phar-deserialization.md)
   * [LFI - Linux List](pentesting-web/file-inclusion/lfi-linux-list.md)
 * [File Upload](pentesting-web/file-upload/README.md)
   * [PDF Upload - XXE and CORS bypass](pentesting-web/file-upload/pdf-upload-xxe-and-cors-bypass.md)
@@ -372,32 +381,10 @@
 * [XSSI \(Cross-Site Script Inclusion\)](pentesting-web/xssi-cross-site-script-inclusion.md)
 * [XS-Search](pentesting-web/xs-search.md)
 
-## Physical attacks
+## Cloud Security
 
-* [Physical Attacks](physical-attacks/physical-attacks.md)
-* [Escaping from KIOSKs](physical-attacks/escaping-from-gui-applications/README.md)
-  * [Show file extensions](physical-attacks/escaping-from-gui-applications/show-file-extensions.md)
-
-## Reversing
-
-* [Common API used in Malware](reversing/common-api-used-in-malware.md)
-* [Reversing Tools](reversing/reversing-tools/README.md)
-  * [Blobrunner](reversing/reversing-tools/blobrunner.md)
-* [Cryptographic/Compression Algorithms](reversing/cryptographic-algorithms/README.md)
-  * [Unpacking binaries](reversing/cryptographic-algorithms/unpacking-binaries.md)
-* [Word Macros](reversing/word-macros.md)
-
-## Exploiting
-
-* [Linux Exploiting \(Basic\) \(SPA\)](exploiting/linux-exploiting-basic-esp/README.md)
-  * [ROP - Syscall execv](exploiting/linux-exploiting-basic-esp/rop-syscall-execv.md)
-  * [ROP - Leaking LIBC address](exploiting/linux-exploiting-basic-esp/rop-leaking-libc-address.md)
-  * [Bypassing Canary & PIE](exploiting/linux-exploiting-basic-esp/bypassing-canary-and-pie.md)
-  * [Ret2Lib](exploiting/linux-exploiting-basic-esp/ret2lib.md)
-  * [Fusion](exploiting/linux-exploiting-basic-esp/fusion.md)
-* [Exploiting Tools](exploiting/tools/README.md)
-  * [PwnTools](exploiting/tools/pwntools.md)
-* [Windows Exploiting \(Basic Guide - OSCP lvl\)](exploiting/windows-exploiting-basic-guide-oscp-lvl.md)
+* [Cloud security review](cloud-security/cloud-security-review.md)
+* [AWS Security](cloud-security/aws-security.md)
 
 ## Forensics
 
@@ -424,6 +411,35 @@
   * [File System Analysis](forensics/basic-forensics-esp/file-system-analysis.md)
   * [PNG tricks](forensics/basic-forensics-esp/png-tricks.md)
   * [ZIPs tricks](forensics/basic-forensics-esp/zips-tricks.md)
+
+## Physical attacks
+
+* [Physical Attacks](physical-attacks/physical-attacks.md)
+* [Escaping from KIOSKs](physical-attacks/escaping-from-gui-applications/README.md)
+  * [Show file extensions](physical-attacks/escaping-from-gui-applications/show-file-extensions.md)
+
+## Reversing
+
+* [Common API used in Malware](reversing/common-api-used-in-malware.md)
+* [Reversing Tools](reversing/reversing-tools/README.md)
+  * [Blobrunner](reversing/reversing-tools/blobrunner.md)
+* [Cryptographic/Compression Algorithms](reversing/cryptographic-algorithms/README.md)
+  * [Unpacking binaries](reversing/cryptographic-algorithms/unpacking-binaries.md)
+* [Word Macros](reversing/word-macros.md)
+
+## Exploiting
+
+* [Linux Exploiting \(Basic\) \(SPA\)](exploiting/linux-exploiting-basic-esp/README.md)
+  * [Format String Template](exploiting/linux-exploiting-basic-esp/format-string-template.md)
+  * [ROP - Syscall execv](exploiting/linux-exploiting-basic-esp/rop-syscall-execv.md)
+  * [ROP - Leaking LIBC address](exploiting/linux-exploiting-basic-esp/rop-leaking-libc-address.md)
+  * [ROP-PWN template](exploiting/linux-exploiting-basic-esp/rop-pwn-template.md)
+  * [Bypassing Canary & PIE](exploiting/linux-exploiting-basic-esp/bypassing-canary-and-pie.md)
+  * [Ret2Lib](exploiting/linux-exploiting-basic-esp/ret2lib.md)
+  * [Fusion](exploiting/linux-exploiting-basic-esp/fusion.md)
+* [Exploiting Tools](exploiting/tools/README.md)
+  * [PwnTools](exploiting/tools/pwntools.md)
+* [Windows Exploiting \(Basic Guide - OSCP lvl\)](exploiting/windows-exploiting-basic-guide-oscp-lvl.md)
 
 ## Crypto
 
@@ -454,7 +470,6 @@
   * [Magic Methods](misc/basic-python/magic-methods.md)
   * [Web Requests](misc/basic-python/web-requests.md)
   * [Bruteforce hash \(few chars\)](misc/basic-python/bruteforce-hash-few-chars.md)
-  * [ROP-PWN template](misc/basic-python/rop-pwn-template.md)
 * [Other Big References](misc/references.md)
 
 ## TODO
@@ -469,7 +484,6 @@
 * [Other Web Tricks](other-web-tricks.md)
 * [Interesting HTTP](interesting-http.md)
 * [Emails Vulnerabilities](emails-vulns.md)
-* [Cloud security review](cloud-security-review.md)
 * [Android Forensics](android-forensics.md)
 * [TR-069](tr-069.md)
 * [6881/udp - Pentesting BitTorrent](6881-udp-pentesting-bittorrent.md)
@@ -479,7 +493,6 @@
     * [Pickle Rick](ctf-write-ups/try-hack-me/pickle-rick.md)
 * [1911 - Pentesting fox](1911-pentesting-fox.md)
 * [Online Platforms with API](online-platforms-with-api.md)
-* [Reset/Forgoten Password Bypass](reset-password.md)
+* [Reset/Forgotten Password Bypass](reset-password.md)
 * [Stealing Sensitive Information Disclosure from a Web](stealing-sensitive-information-disclosure-from-a-web.md)
-* [AWS Security](aws-security.md)
 

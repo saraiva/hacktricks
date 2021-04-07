@@ -158,6 +158,31 @@ nmap -sV --script irc-brute,irc-sasl-brute --script-args userdb=/path/users.txt,
 nmap -sV --script iscsi-brute --script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt -p 3260 <IP>
 ```
 
+### JWT
+
+```bash
+#hashcat
+hashcat -m 16500 -a 0 jwt.txt .\wordlists\rockyou.txt
+
+#https://github.com/Sjord/jwtcrack
+python crackjwt.py eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoie1widXNlcm5hbWVcIjpcImFkbWluXCIsXCJyb2xlXCI6XCJhZG1pblwifSJ9.8R-KVuXe66y_DXVOVgrEqZEoadjBnpZMNbLGhM8YdAc /usr/share/wordlists/rockyou.txt
+
+#John
+john jwt.txt --wordlist=wordlists.txt --format=HMAC-SHA256
+
+#https://github.com/ticarpi/jwt_tool
+python3 jwt_tool.py -d wordlists.txt <JWT token>
+
+#https://github.com/brendan-rius/c-jwt-cracker
+./jwtcrack eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoie1widXNlcm5hbWVcIjpcImFkbWluXCIsXCJyb2xlXCI6XCJhZG1pblwifSJ9.8R-KVuXe66y_DXVOVgrEqZEoadjBnpZMNbLGhM8YdAc 1234567890 8
+
+#https://github.com/mazen160/jwt-pwn
+python3 jwt-cracker.py -jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoie1widXNlcm5hbWVcIjpcImFkbWluXCIsXCJyb2xlXCI6XCJhZG1pblwifSJ9.8R-KVuXe66y_DXVOVgrEqZEoadjBnpZMNbLGhM8YdAc -w wordlist.txt
+
+#https://github.com/lmammino/jwt-cracker
+jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ" "abcdefghijklmnopqrstuwxyz" 6
+```
+
 ### LDAP
 
 ```bash
@@ -379,6 +404,12 @@ fcrackzip -u -D -p '/usr/share/wordlists/rockyou.txt' chall.zip
 ```bash
 zip2john file.zip > zip.john
 john zip.john
+```
+
+```bash
+#$zip2$*0*3*0*a56cb83812be3981ce2a83c581e4bc4f*4d7b*24*9af41ff662c29dfff13229eefad9a9043df07f2550b9ad7dfc7601f1a9e789b5ca402468*694b6ebb6067308bedcd*$/zip2$
+hashcat.exe -m 13600 -a 0 .\hashzip.txt .\wordlists\rockyou.txt
+.\hashcat.exe -m 13600 -i -a 0 .\hashzip.txt #Incremental attack
 ```
 
 ### 7z

